@@ -9,10 +9,8 @@ export default function Joker() {
   const getJokes = useCallback(async () => {
     try {
       const res = await axios.get(URL);
-      console.log(res);
       setJoke(res?.data);
     } catch (error) {
-      console.error("An error occured!", error);
       throw error;
     }
   }, []);
@@ -21,10 +19,9 @@ export default function Joker() {
     const firstJoke = async () => {
       const joke = await axios.get(URL);
       setJoke(joke?.data);
-      console.log(`use effect run`);
     };
     firstJoke();
-  }, [URL]);
+  }, []);
 
   return (
     <>
