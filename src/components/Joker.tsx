@@ -17,8 +17,12 @@ export default function Joker() {
 
   useEffect(() => {
     const firstJoke = async () => {
-      const joke = await axios.get(URL);
-      setJoke(joke?.data);
+      try {
+        const joke = await axios.get(URL);
+        setJoke(joke?.data);
+      } catch (error) {
+        throw error;
+      }
     };
     firstJoke();
   }, []);
